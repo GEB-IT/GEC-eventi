@@ -12,9 +12,6 @@
       <div class="hero-copy">
         <p class="eyebrow">GEBERIT EXPERIENCE CENTER MILANO</p>
         <h1>Genera il programma del tuo evento all’Experience Center</h1>
-        <div class="hero-actions">
-          <a href="#generator" class="button primary">Crea PDF</a>
-        </div>
       </div>
     </section>
 
@@ -85,7 +82,10 @@
     <section class="panel result-panel" id="resultPanel" hidden>
       <div class="panel-header">
         <div><p class="eyebrow">Output</p><h2>Anteprima PDF generato</h2></div>
-        <a id="downloadLink" class="button primary" download="Geberit experience center.pdf">Scarica PDF</a>
+        <div class="output-actions">
+          <button id="editDataBtn" class="button secondary" type="button">Modifica dati</button>
+          <a id="downloadLink" class="button primary" download="Geberit experience center.pdf">Scarica PDF</a>
+        </div>
       </div>
       <iframe id="pdfPreview" title="Anteprima PDF generato"></iframe>
     </section>
