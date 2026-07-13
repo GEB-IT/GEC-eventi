@@ -8,9 +8,9 @@ const activityOptions = [
   'Arrivo e welcome coffee',
   "Visita all'Experience Center",
   'Pranzo',
+  'Formazione',
   'Attività esterna',
   'Cena',
-  'Pausa caffè',
   'Chiusura'
 ];
 
