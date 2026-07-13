@@ -8,7 +8,7 @@ const activityOptions = [
   'Arrivo e welcome coffee',
   "Visita all'Experience Center",
   'Pranzo',
-  'Attività esterna',
+  'Attività ludica',
   'Cena',
   'Pausa caffè',
   'Chiusura'
@@ -36,6 +36,7 @@ const resetBtn = document.getElementById('resetBtn');
 const resultPanel = document.getElementById('resultPanel');
 const pdfPreview = document.getElementById('pdfPreview');
 const downloadLink = document.getElementById('downloadLink');
+const editDataBtn = document.getElementById('editDataBtn');
 const dayButtons = document.querySelectorAll('[data-day-button]');
 
 async function loadConfig() {
@@ -184,7 +185,7 @@ function populateActivitySelects() {
 
     select.addEventListener('change', () => {
       const isOther = select.value === '__other__';
-      const isExternalActivity = select.value === 'Attività esterna';
+      const isExternalActivity = select.value === 'Attività ludica';
 
       if (customInput) {
         customInput.hidden = !isOther;
@@ -206,7 +207,7 @@ function populateActivitySelects() {
 function getActivityValue(day, index) {
   const selected = getValue(`att${index}_d${day}`);
   if (selected === '__other__') return getValue(`att${index}_custom_d${day}`);
-  if (selected === 'Attività esterna') return getValue(`att${index}_external_d${day}`);
+  if (selected === 'Attività ludica') return getValue(`att${index}_external_d${day}`);
   return selected;
 }
 
@@ -440,6 +441,12 @@ function resetFormData() {
 }
 
 resetBtn.addEventListener('click', resetFormData);
+
+if (editDataBtn) {
+  editDataBtn.addEventListener('click', () => {
+    document.getElementById('generator').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
 
 populateTimeSelects();
 populateActivitySelects();
