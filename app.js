@@ -8,7 +8,7 @@ const activityOptions = [
   'Arrivo e welcome coffee',
   "Visita all'Experience Center",
   'Pranzo',
-  'Attività ludica',
+  'Attività esterna',
   'Cena',
   'Pausa caffè',
   'Chiusura'
@@ -36,7 +36,6 @@ const resetBtn = document.getElementById('resetBtn');
 const resultPanel = document.getElementById('resultPanel');
 const pdfPreview = document.getElementById('pdfPreview');
 const downloadLink = document.getElementById('downloadLink');
-const editDataBtn = document.getElementById('editDataBtn');
 const dayButtons = document.querySelectorAll('[data-day-button]');
 
 async function loadConfig() {
@@ -99,6 +98,22 @@ function formatItalianDateWithoutYear(value) {
     day: 'numeric',
     month: 'long'
   }).format(date);
+}
+
+function formatDateForFilename(value) {
+  const date = parseIsoDate(value);
+  if (!date) return '';
+
+  const months = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${day}-${months[date.getMonth()]}-${date.getFullYear()}`;
+}
+
+function buildPdfFilename() {
+  const formattedDate = formatDateForFilename(getValue('data1_d1'));
+  return formattedDate
+    ? `Geberit experience center ${formattedDate}.pdf`
+    : 'Geberit experience center.pdf';
 }
 
 function formatRsvpText(value) {
@@ -169,7 +184,7 @@ function populateActivitySelects() {
 
     select.addEventListener('change', () => {
       const isOther = select.value === '__other__';
-      const isExternalActivity = select.value === 'Attività ludica';
+      const isExternalActivity = select.value === 'Attività esterna';
 
       if (customInput) {
         customInput.hidden = !isOther;
@@ -191,7 +206,7 @@ function populateActivitySelects() {
 function getActivityValue(day, index) {
   const selected = getValue(`att${index}_d${day}`);
   if (selected === '__other__') return getValue(`att${index}_custom_d${day}`);
-  if (selected === 'Attività ludica') return getValue(`att${index}_external_d${day}`);
+  if (selected === 'Attività esterna') return getValue(`att${index}_external_d${day}`);
   return selected;
 }
 
@@ -330,6 +345,7 @@ function showPdf(bytes, downloadImmediately = false) {
   latestUrl = URL.createObjectURL(blob);
   pdfPreview.src = latestUrl;
   downloadLink.href = latestUrl;
+  downloadLink.download = buildPdfFilename();
   resultPanel.hidden = false;
   resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (downloadImmediately) downloadLink.click();
@@ -418,17 +434,12 @@ function resetFormData() {
   }
   pdfPreview.removeAttribute('src');
   downloadLink.removeAttribute('href');
+  downloadLink.download = 'Geberit experience center.pdf';
   resultPanel.hidden = true;
   document.getElementById('generator').scrollIntoView({ behavior: 'smooth' });
 }
 
 resetBtn.addEventListener('click', resetFormData);
-
-if (editDataBtn) {
-  editDataBtn.addEventListener('click', () => {
-    document.getElementById('generator').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-}
 
 populateTimeSelects();
 populateActivitySelects();
