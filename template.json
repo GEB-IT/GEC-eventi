@@ -1,0 +1,88 @@
+{
+  "page": {
+    "width": 595.2,
+    "height": 841.92
+  },
+  "template": "assets/sfondo.pdf",
+  "styles": {
+    "textColor": "#ffffff",
+    "accentColor": "#6ad6ff",
+    "font": "Helvetica",
+    "boldFont": "Helvetica-Bold"
+  },
+  "layouts": {
+    "oneDay": {
+      "data1": {
+        "x": 94.8,
+        "y": 381.99,
+        "width": 458.4,
+        "fontSize": 33,
+        "align": "right"
+      },
+      "agenda": [
+        { "x": 94.8, "y": 359.47, "width": 458.4, "fontSize": 20, "align": "right" },
+        { "x": 94.8, "y": 335.46, "width": 458.4, "fontSize": 20, "align": "right" },
+        { "x": 94.8, "y": 311.45, "width": 458.4, "fontSize": 20, "align": "right" },
+        { "x": 94.8, "y": 287.45, "width": 458.4, "fontSize": 20, "align": "right" },
+        { "x": 94.8, "y": 263.44, "width": 458.4, "fontSize": 20, "align": "right" }
+      ],
+      "data3": {
+        "x": 94.8,
+        "y": 148.82,
+        "width": 458.4,
+        "fontSize": 24,
+        "align": "right"
+      }
+    },
+    "twoDays": {
+      "day1": {
+        "data1": {
+          "x": 94.8,
+          "y": 457.15,
+          "width": 458.7,
+          "fontSize": 33,
+          "align": "right"
+        },
+        "agenda": [
+          { "x": 94.8, "y": 434.93, "width": 458.7, "fontSize": 20, "align": "right" },
+          { "x": 94.8, "y": 410.92, "width": 458.7, "fontSize": 20, "align": "right" },
+          { "x": 94.8, "y": 386.91, "width": 458.7, "fontSize": 20, "align": "right" },
+          { "x": 94.8, "y": 362.90, "width": 458.7, "fontSize": 20, "align": "right" },
+          { "x": 94.8, "y": 338.90, "width": 458.7, "fontSize": 20, "align": "right" }
+        ]
+      },
+      "day2": {
+        "data1": {
+          "x": 94.8,
+          "y": 284.45,
+          "width": 458.7,
+          "fontSize": 33,
+          "align": "right"
+        },
+        "agenda": [
+          { "x": 94.8, "y": 262.13, "width": 458.7, "fontSize": 20, "align": "right" },
+          { "x": 94.8, "y": 238.12, "width": 458.7, "fontSize": 20, "align": "right" },
+          { "x": 94.8, "y": 214.11, "width": 458.7, "fontSize": 20, "align": "right" },
+          { "x": 94.8, "y": 190.10, "width": 458.7, "fontSize": 20, "align": "right" },
+          { "x": 94.8, "y": 166.09, "width": 458.7, "fontSize": 20, "align": "right" }
+        ]
+      },
+      "data3": {
+        "x": 94.8,
+        "y": 110.73,
+        "width": 458.7,
+        "fontSize": 24,
+        "align": "right"
+      }
+    }
+  },
+  "multiDay": {
+    "enabled": true,
+    "maxDays": 2,
+    "singleOutputPage": true,
+    "day2Defaults": {
+      "data1": "next_day_from_day1",
+      "data2": "same_as_day1"
+    }
+  }
+}
