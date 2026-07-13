@@ -8,7 +8,7 @@ const activityOptions = [
   'Arrivo e welcome coffee',
   "Visita all'Experience Center",
   'Pranzo',
-  'Attività ludica',
+  'Attività esterna',
   'Cena',
   'Pausa caffè',
   'Chiusura'
@@ -185,7 +185,7 @@ function populateActivitySelects() {
 
     select.addEventListener('change', () => {
       const isOther = select.value === '__other__';
-      const isExternalActivity = select.value === 'Attività ludica';
+      const isExternalActivity = select.value === 'Attività esterna';
 
       if (customInput) {
         customInput.hidden = !isOther;
@@ -207,7 +207,7 @@ function populateActivitySelects() {
 function getActivityValue(day, index) {
   const selected = getValue(`att${index}_d${day}`);
   if (selected === '__other__') return getValue(`att${index}_custom_d${day}`);
-  if (selected === 'Attività ludica') return getValue(`att${index}_external_d${day}`);
+  if (selected === 'Attività esterna') return getValue(`att${index}_external_d${day}`);
   return selected;
 }
 
