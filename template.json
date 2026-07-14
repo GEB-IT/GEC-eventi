@@ -14,7 +14,7 @@
     "oneDay": {
       "data1": {
         "x": 94.8,
-        "y": 394.99,
+        "y": 393.99,
         "width": 458.4,
         "fontSize": 33,
         "align": "right"
@@ -38,7 +38,7 @@
       "day1": {
         "data1": {
           "x": 94.8,
-          "y": 459.15,
+          "y": 460.15,
           "width": 458.7,
           "fontSize": 33,
           "align": "right"
@@ -54,7 +54,7 @@
       "day2": {
         "data1": {
           "x": 94.8,
-          "y": 286.45,
+          "y": 287.45,
           "width": 458.7,
           "fontSize": 33,
           "align": "right"
